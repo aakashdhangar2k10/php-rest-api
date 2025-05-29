@@ -24,9 +24,9 @@
         <tr>
             <td id="table-form">
                 <form id="addForm">
-                    Name : <input type="text" name="sname" id="sname">
-                    Age : <input type="number" name="sage" id="sage">
-                    City : <input type="text" name="scity" id="scity">
+                    Name : <input type="text" name="name" id="name">
+                    Age : <input type="number" name="age" id="age">
+                    City : <input type="text" name="city" id="city">
                     <input type="submit" id="save-button" value="Save">
                 </form>
             </td>
@@ -83,7 +83,7 @@
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            
+
             //Fetch All Records
             function loadTable() {
                 $("#load-table").html("");
@@ -112,13 +112,70 @@
             loadTable();
 
 
-            
+            //Show Success or Error Messages
+            // function message(message, status) {
+            //     if (status == true) {
+            //         $("#success-message").html(message).slideDown();
+            //         $("#error-message").slideUp();
+            //         setTimeout(function () {
+            //             $("#success-message").slideUp();
+            //         }, 4000);
+            //     }
+            //     else if (status == false) {
+            //         $("#error-message").html(message).slideDown();
+            //         $("#success-message").slideUp();
+            //         setTimeout(function () {
+            //             $("#error-message").slideUp();
+            //         }, 4000);
+            //     }
+            // }
 
 
+            // Function for form Data to JSON Object
+            function jsonData(targetForm) {
+                var arr = $(targetForm).serializeArray();
+
+                var obj = {};
+                for (var a = 0; a < arr.length; a++) {
+                    if (arr[a].value == "") {
+                        return false;
+                    }
+                    obj[arr[a].name] = arr[a].value;
+                }
+
+                var json_string = JSON.stringify(obj);
+
+                return json_string;
+
+            }
 
 
+            //Insert New Record
+            $("#save-button").on("click", function (e) {
+                e.preventDefault();
 
-});
+                var jsonObj = jsonData("#addForm");
+
+                if (jsonObj == false) {
+                    message("All Fields are required.", false);
+                } else {
+                    $.ajax({
+                        url: 'http://localhost/php-rest-api/api-insert.php',
+                        type: "POST",
+                        data: jsonObj,
+                        success: function (data) {
+                            message(data.message, data.status);
+
+                            if (data.status == true) {
+                                loadTable();
+                                $("#addForm").trigger("reset");
+                            }
+                        }
+                    });
+                }
+            });
+
+        });
     </script>
 </body>
 
