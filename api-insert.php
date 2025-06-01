@@ -2,8 +2,7 @@
 header('Content-Type: application/json');
 header('Access-Content-Allow-Origin: *');
 header('Access-Content-Allow-Methods: POST');
-header('Access-Content-Allow-Headers:Access-Content-Allow-Headers,Content-Type,
-Access-Content-Allow-Methods,Authorization,X-Requested-With');
+header('Access-Content-Allow-Headers:Access-Content-Allow-Headers,Content-Type,Access-Content-Allow-Methods,Authorization,X-Requested-With');
 
 
 include 'config.php';
