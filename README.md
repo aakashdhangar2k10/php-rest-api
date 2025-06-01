@@ -12,19 +12,19 @@ A simple RESTful API built with PHP and MySQL. This API is designed to handle ba
 - Easy to customize and extend
 
 ## 📁 Project Structure
-php-rest-api/
-├── css/
-│ └── style.css
-├── js/
-│ └── jquery.js
-├── config.php
-├── api-insert.php
-├── api-update.php
-├── api-delete.php
-├── api-search.php
-├── api-fetch-all.php
-├── api-fetch-single.php
-├── index.html
+php-rest-api/ <br>
+├── css/ <br>
+│ └── style.css <br>
+├── js/ <br>
+│ └── jquery.js <br>
+├── config.php <br>
+├── api-insert.php <br>
+├── api-update.php <br>
+├── api-delete.php <br>
+├── api-search.php <br>
+├── api-fetch-all.php <br>
+├── api-fetch-single.php <br>
+├── index.html <br>
 
 ## 🧑‍💻 Author
 Akash Dhangar
