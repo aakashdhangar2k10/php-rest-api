@@ -1,9 +1,9 @@
 <?php 
 
 $servername = 'localhost';
-$username = 'root';
-$password = '';
-$database = 'php-rest-api';
+$username = 'u884474721_phprestapi';
+$password = 'Trinaabh@23';
+$database = 'u884474721_phprestapi';
  
 $conn = new mysqli("$servername","$username", "$password","$database");
 
